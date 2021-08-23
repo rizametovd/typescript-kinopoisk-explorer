@@ -1,0 +1,12 @@
+.genresListItem {
+    display: inline-block;
+    background-color: #ffc700;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    border-radius: 28px;
+    font-size: 12px;
+    color: #000;
+  }
+
+ 

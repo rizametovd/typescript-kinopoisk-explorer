@@ -1,0 +1,11 @@
+.preloader {
+  padding: 20px 0 0;
+  margin: auto;
+}
+
+.text {
+  font-weight: 700;
+  font-size: 36px;
+  text-align: center;
+  margin: 0;
+}
