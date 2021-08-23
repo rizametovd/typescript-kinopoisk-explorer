@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/typescript-kinopoisk-explorer/static/css/main.9c5eb269.chunk.css",
+    "main.js": "/typescript-kinopoisk-explorer/static/js/main.50d14d7d.chunk.js",
+    "main.js.map": "/typescript-kinopoisk-explorer/static/js/main.50d14d7d.chunk.js.map",
+    "runtime-main.js": "/typescript-kinopoisk-explorer/static/js/runtime-main.66e020cb.js",
+    "runtime-main.js.map": "/typescript-kinopoisk-explorer/static/js/runtime-main.66e020cb.js.map",
+    "static/js/2.5ab67bb2.chunk.js": "/typescript-kinopoisk-explorer/static/js/2.5ab67bb2.chunk.js",
+    "static/js/2.5ab67bb2.chunk.js.map": "/typescript-kinopoisk-explorer/static/js/2.5ab67bb2.chunk.js.map",
+    "index.html": "/typescript-kinopoisk-explorer/index.html",
+    "static/css/main.9c5eb269.chunk.css.map": "/typescript-kinopoisk-explorer/static/css/main.9c5eb269.chunk.css.map",
+    "static/js/2.5ab67bb2.chunk.js.LICENSE.txt": "/typescript-kinopoisk-explorer/static/js/2.5ab67bb2.chunk.js.LICENSE.txt",
+    "static/media/logo.84c1e32f.svg": "/typescript-kinopoisk-explorer/static/media/logo.84c1e32f.svg",
+    "static/media/react-logo.e68b35f4.svg": "/typescript-kinopoisk-explorer/static/media/react-logo.e68b35f4.svg",
+    "static/media/redux-logo.0e4fb1c8.svg": "/typescript-kinopoisk-explorer/static/media/redux-logo.0e4fb1c8.svg",
+    "static/media/styles.module.css": "/typescript-kinopoisk-explorer/static/media/search-icon.d7d50e52.svg",
+    "static/media/ts-logo.e0cf5672.svg": "/typescript-kinopoisk-explorer/static/media/ts-logo.e0cf5672.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66e020cb.js",
+    "static/js/2.5ab67bb2.chunk.js",
+    "static/css/main.9c5eb269.chunk.css",
+    "static/js/main.50d14d7d.chunk.js"
+  ]
+}
