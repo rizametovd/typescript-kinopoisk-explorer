@@ -12,6 +12,7 @@ import {
   SEARCH_PAGE,
 } from '../../utils/constants';
 import AboutPage from '../AboutPage/AboutPage';
+import Message from '../Message/Message';
 import MoviePage from '../MoviePage/MoviePage';
 import MoviesList from '../MoviesList/MoviesList';
 import Pagination from '../Pagination/Pagination';
@@ -36,9 +37,7 @@ const Main: React.FC = () => {
       <Switch>
         <Route exact path={MAIN_PAGE}>
           {isTopMoviesLoading && <Preloader />}
-          {!isTopMoviesLoading && fetchTopMoviesError && (
-            <h1 className={styles.message}>{fetchTopMoviesError}</h1>
-          )}
+          {!isTopMoviesLoading && fetchTopMoviesError && <Message message={fetchTopMoviesError} />}
           {!isTopMoviesLoading && !fetchTopMoviesError && (
             <>
               <h1 className={styles.title}>Топ популярных фильмов</h1>
@@ -54,14 +53,12 @@ const Main: React.FC = () => {
 
         <Route exact path={`/${SEARCH_PAGE}`}>
           {isSearchResultsLoading && <Preloader />}
-          {!isSearchResultsLoading && searchMovieError && (
-            <h1 className={styles.message}>{searchMovieError}</h1>
-          )}
+          {!isSearchResultsLoading && searchMovieError && <Message message={searchMovieError} />}
           {!isSearchResultsLoading && !searchMovieError && keyword === '' && (
-            <h1 className={styles.message}>{NO_SEARCH_YET_MESSAGE}</h1>
+            <Message message={NO_SEARCH_YET_MESSAGE} />
           )}
           {!isSearchResultsLoading && !!keyword && Boolean(!searchResults.length) && (
-            <h1 className={styles.message}>{NO_SEARCH_RESULTS_MESSAGE}</h1>
+            <Message message={NO_SEARCH_RESULTS_MESSAGE} />
           )}
           {!isSearchResultsLoading && !!keyword && Boolean(searchResults.length) && (
             <>

@@ -6,6 +6,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { fetchMovie } from '../../utils/api';
 import Preloader from '../Preloader/Preloader';
 import Genres from '../Genres/Genres';
+import Message from '../Message/Message';
 
 interface IMovieProps {
   filmId: string;
@@ -29,7 +30,7 @@ const MoviePage: React.FC = () => {
       ></div>
 
       {isLoading && <Preloader />}
-      {!isLoading && !!movieError && <h1 className={styles.message}>{movieError}</h1>}
+      {!isLoading && !!movieError && <Message message={movieError} />}
 
       {!isLoading && !movieError && (
         <>

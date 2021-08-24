@@ -6,6 +6,7 @@ export const ABOUT_PAGE = 'about-page';
 export const MAIN_PAGE = '/';
 export const MOVIE_PAGE = 'movie';
 export const SEARCH_PAGE = 'search';
+export const GH_PAGES_PATH = '/typescript-kinopoisk-explorer';
 
 export const MAX_PAGES_COUNT = 20;
 // Ограничения АПИ: более 20 страниц получить нельзя,
