@@ -5,7 +5,7 @@ interface IMessageProps {
 }
 
 const Message: React.FC<IMessageProps> = ({ message }) => {
-  return <h1 className={styles.message}>{message}</h1>;
+  return <h2 className={styles.message}>{message}</h2>;
 };
 
 export default Message;

@@ -2,27 +2,28 @@ import { IMovie } from '../../types/movieTypes';
 import {
   ISearchMovieAction,
   ISearchMovieError,
-  ISearchSuccessAction,
+  ISearchMovieFinishedAction,
+  // ISearchSuccessAction,
   ISetSearchKeyword,
   ISetSearchMoviePage,
   ISetSearchPagesCount,
   SearchMovieActionTypes,
 } from '../../types/searchTypes';
 
-export const searchMovieAction = (): ISearchMovieAction => {
+export const searchMovieAction = (movies: IMovie[]): ISearchMovieAction => {
   return {
     type: SearchMovieActionTypes.SEARCH_MOVIE,
-  };
-};
-
-export const searchMovieSuccessAction = (movies: IMovie[]): ISearchSuccessAction => {
-  return {
-    type: SearchMovieActionTypes.SEARCH_MOVIE_SUCCESS,
     payload: movies,
   };
 };
 
-export const setSearchPagesCount = (page: number): ISetSearchPagesCount => {
+export const searchMovieFinishedAction = (): ISearchMovieFinishedAction => {
+  return {
+    type: SearchMovieActionTypes.SEARCH_MOVIE_FINISHED,
+  }
+}
+
+export const setSearchPagesCountAction = (page: number): ISetSearchPagesCount => {
   return {
     type: SearchMovieActionTypes.SET_SEARCH_PAGES_COUNT,
     payload: page,
@@ -43,7 +44,7 @@ export const setSearchKeywordAction = (keyword: string): ISetSearchKeyword => {
   };
 };
 
-export const searchMovieError = (message: string): ISearchMovieError => {
+export const searchMovieErrorAction = (message: string): ISearchMovieError => {
   return {
     type: SearchMovieActionTypes.SEARCH_MOVIE_ERROR,
     payload: message,

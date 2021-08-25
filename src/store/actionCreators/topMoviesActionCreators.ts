@@ -1,22 +1,22 @@
 import { IMovie } from '../../types/movieTypes';
 import {
   IFetchTopMoviesAction,
-  IFetchTopMoviesSuccessAction,
+  IFetchTopMoviesFinishedAction,
   ISetTopMoviePage,
   ITopMoviesError,
   TopMovieActionTypes,
 } from '../../types/topMoviesTypes';
 
-export const fetchTopMoviesAction = (): IFetchTopMoviesAction => {
+export const fetchTopMoviesAction = (moviesList: IMovie[]): IFetchTopMoviesAction => {
   return {
     type: TopMovieActionTypes.FETCH_TOP_MOVIES,
+    payload: moviesList,
   };
 };
 
-export const fetchTopMovieSuccessAction = (moviesList: IMovie[]): IFetchTopMoviesSuccessAction => {
+export const fetchTopMoviesFinishedAction = (): IFetchTopMoviesFinishedAction => {
   return {
-    type: TopMovieActionTypes.FETCH_TOP_MOVIES_SUCCESS,
-    payload: moviesList,
+    type: TopMovieActionTypes.FETCH_TOP_MOVIES_FINISHED,
   };
 };
 
@@ -27,7 +27,7 @@ export const setTopMoviePageAction = (page: number): ISetTopMoviePage => {
   };
 };
 
-export const fetchTopMoviesError = (message: string): ITopMoviesError => {
+export const fetchTopMoviesErrorAction = (message: string): ITopMoviesError => {
   return {
     type: TopMovieActionTypes.FETCH_TOP_MOVIES_ERROR,
     payload: message,

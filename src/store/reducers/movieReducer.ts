@@ -31,14 +31,16 @@ const initialState: IMovieState = {
 export const movieReducer = (state = initialState, action: MovieActions): IMovieState => {
   switch (action.type) {
     case MovieActionTypes.FETCH_MOVIE: {
-      return { ...state, isLoading: true };
+      return { ...state, movie: action.payload, isLoading: true };
     }
-    case MovieActionTypes.FETCH_MOVIE_SUCCESS: {
-      return { ...state, movie: action.payload, isLoading: false };
+    case MovieActionTypes.FETCH_MOVIE_DATA_FINISHED: {
+      return { ...state, isLoading: false };
     }
-
     case MovieActionTypes.FETCH_MOVIE_ERROR: {
-      return { ...state, movieError: action.payload, isLoading: false };
+      return { ...state, movieError: action.payload };
+    }
+    case MovieActionTypes.RESET_MOVIE_STATE: {
+      return initialState;
     }
     default:
       return state;

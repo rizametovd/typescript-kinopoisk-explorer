@@ -1,20 +1,20 @@
 import { Dispatch } from 'redux';
 import {
   searchMovieAction,
-  searchMovieError,
-  searchMovieSuccessAction,
+  searchMovieErrorAction,
+  searchMovieFinishedAction,
   setSearchKeywordAction,
-  setSearchPagesCount,
+  setSearchPagesCountAction,
 } from '../store/actionCreators/searchMovieActionCreators';
 import {
   fetchMovieAction,
-  fetchMovieError,
-  fetchMovieSuccessAction,
+  fetchMovieDataFinishedAction,
+  fetchMovieErrorAction,
 } from '../store/actionCreators/singleMovieActionCreators';
 import {
   fetchTopMoviesAction,
-  fetchTopMoviesError,
-  fetchTopMovieSuccessAction,
+  fetchTopMoviesErrorAction,
+  fetchTopMoviesFinishedAction,
 } from '../store/actionCreators/topMoviesActionCreators';
 import { MovieActions } from '../types/movieTypes';
 import { SearchMovieActions } from '../types/searchTypes';
@@ -32,16 +32,14 @@ const checkResponse = (response: Response) => {
 const fetchTopMovies = (page = 1) => {
   return async (dispatch: Dispatch<TopMovieAction>) => {
     try {
-      dispatch(fetchTopMoviesAction());
       const response = await fetch(`${BASE_TOP_MOVIES_URL}${page}`, options);
       const topMoviesData = await checkResponse(response);
-
-      setTimeout(() => {
-        dispatch(fetchTopMovieSuccessAction(topMoviesData.films));
-      }, 400);
+      dispatch(fetchTopMoviesAction(topMoviesData.films));
     } catch (err) {
       console.log(err);
-      setTimeout(() => dispatch(fetchTopMoviesError(FETCH_ERROR_MESSAGE)), 400);
+      setTimeout(() => dispatch(fetchTopMoviesErrorAction(FETCH_ERROR_MESSAGE)), 400);
+    } finally {
+      setTimeout(() => dispatch(fetchTopMoviesFinishedAction()), 400);
     }
   };
 };
@@ -49,14 +47,14 @@ const fetchTopMovies = (page = 1) => {
 const fetchMovie = (filmId: string) => {
   return async (dispatch: Dispatch<MovieActions>) => {
     try {
-      dispatch(fetchMovieAction());
       const response = await fetch(`${BASE_FETCH_URL}/v2.1/films/${filmId}`, options);
       const movieData = await checkResponse(response);
-
-      setTimeout(() => dispatch(fetchMovieSuccessAction(movieData.data)), 400);
+      dispatch(fetchMovieAction(movieData.data));
     } catch (err) {
       console.log(err);
-      setTimeout(() => dispatch(fetchMovieError(FETCH_ERROR_MESSAGE)), 400);
+      setTimeout(() => dispatch(fetchMovieErrorAction(FETCH_ERROR_MESSAGE)), 400);
+    } finally {
+      setTimeout(() => dispatch(fetchMovieDataFinishedAction()), 400);
     }
   };
 };
@@ -64,21 +62,19 @@ const fetchMovie = (filmId: string) => {
 const searchMovie = (keyword?: string, page = 1) => {
   return async (dispatch: Dispatch<SearchMovieActions>) => {
     try {
-      dispatch(searchMovieAction());
       const response = await fetch(
         `${BASE_FETCH_URL}/v2.1/films/search-by-keyword?keyword=${keyword}&page=${page}`,
         options
       );
       const searchResultsData = await checkResponse(response);
-
-      setTimeout(() => {
-        dispatch(setSearchPagesCount(searchResultsData.pagesCount));
-        dispatch(searchMovieSuccessAction(searchResultsData.films));
-        dispatch(setSearchKeywordAction(searchResultsData.keyword));
-      }, 400);
+      dispatch(searchMovieAction(searchResultsData.films));
+      dispatch(setSearchPagesCountAction(searchResultsData.pagesCount));
+      dispatch(setSearchKeywordAction(searchResultsData.keyword));
     } catch (err) {
-      setTimeout(() => dispatch(searchMovieError(FETCH_ERROR_MESSAGE)), 400);
+      setTimeout(() => dispatch(searchMovieErrorAction(FETCH_ERROR_MESSAGE)), 400);
       console.log(err);
+    } finally {
+      setTimeout(() => dispatch(searchMovieFinishedAction()), 400);
     }
   };
 };

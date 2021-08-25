@@ -11,6 +11,12 @@
 .logo {
   width: 60px;
   margin-bottom: 20px;
+  transition: opacity 0.3s linear;
+}
+
+.logo:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.7;
 }
 
 .list {
@@ -33,6 +39,7 @@
   text-decoration: none;
   color: #fff;
   outline: none;
+  transition: opacity 0.3s linear;
 }
 
 .link:focus {

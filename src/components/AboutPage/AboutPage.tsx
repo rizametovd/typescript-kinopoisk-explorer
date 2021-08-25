@@ -2,7 +2,6 @@ import styles from './styles.module.css';
 import ReactLogo from '../../images/react-logo.svg';
 import TypeScriptLogo from '../../images/ts-logo.svg';
 import ReduxLogo from '../../images/redux-logo.svg';
-
 const AboutPage: React.FC = () => {
   return (
     <section className={styles.section}>

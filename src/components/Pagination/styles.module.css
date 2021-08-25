@@ -27,6 +27,7 @@
   border-radius: 5px;
   padding: 10px 15px;
   outline: none;
+  transition: background-color 0.3s linear;
 }
 
 .link:focus:not(:active):not(.activeLink) {

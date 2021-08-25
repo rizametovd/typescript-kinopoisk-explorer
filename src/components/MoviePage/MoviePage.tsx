@@ -7,6 +7,8 @@ import { fetchMovie } from '../../utils/api';
 import Preloader from '../Preloader/Preloader';
 import Genres from '../Genres/Genres';
 import Message from '../Message/Message';
+import GoBackLink from '../GoBackLink/GoBackLink';
+
 
 interface IMovieProps {
   filmId: string;
@@ -20,37 +22,45 @@ const MoviePage: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchMovie(filmId));
-  }, [filmId]);
+  }, [filmId, dispatch]);
+
 
   return (
     <section className={styles.section}>
-      <div
-        className={styles.backgroundImage}
-        style={{ backgroundImage: `url(${posterUrl})` }}
-      ></div>
+
+      <div className={styles.backgroundImage} style={{ backgroundImage: `url(${posterUrl})` }} />
 
       {isLoading && <Preloader />}
+
       {!isLoading && !!movieError && <Message message={movieError} />}
 
       {!isLoading && !movieError && (
         <>
-          <img src={posterUrl} alt='Постер' className={styles.poster} />
-          <div>
-            <h1 className={styles.title}>{nameRu}</h1>
-            <h2 className={styles.subtitle}>
-              {nameEn && `${nameEn}, `}
-              <span>{year}</span>
-            </h2>
-            {filmLength && <p className={styles.subtitle}>Продолжительность: {filmLength} ч</p>}
+          <GoBackLink text={'Назад'} />
 
-            <ul className={styles.genresList}>
-              {genres.map(({ genre }, idx) => (
-                <Genres genre={genre} key={idx} />
-              ))}
-            </ul>
+          <div className={styles.content}>
+            <img src={posterUrl} alt='Постер' className={styles.poster} />
+            <div>
+              <h1 className={styles.title}>{nameRu}</h1>
+              <h2 className={styles.subtitle}>
+                {nameEn && `${nameEn}, `}
+                <span>{year}</span>
+              </h2>
+              {filmLength && <p className={styles.subtitle}>Продолжительность: {filmLength} ч</p>}
 
-            <h3 className={styles.heading}>Описание</h3>
-            <p className={styles.text}>{description}</p>
+              <ul className={styles.genresList}>
+                {genres.map(({ genre }, idx) => (
+                  <Genres genre={genre} key={idx} />
+                ))}
+              </ul>
+
+              {description && (
+                <>
+                  <h3 className={styles.heading}>Описание</h3>
+                  <p className={styles.text}>{description}</p>
+                </>
+              )}
+            </div>
           </div>
         </>
       )}

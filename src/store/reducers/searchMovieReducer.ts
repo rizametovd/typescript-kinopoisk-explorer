@@ -19,10 +19,10 @@ export const searchMovieReducer = (
 ): ISearchMovieState => {
   switch (action.type) {
     case SearchMovieActionTypes.SEARCH_MOVIE: {
-      return { ...state, isSearchResultsLoading: true };
+      return { ...state, isSearchResultsLoading: true, searchResults: action.payload };
     }
-    case SearchMovieActionTypes.SEARCH_MOVIE_SUCCESS: {
-      return { ...state, isSearchResultsLoading: false, searchResults: action.payload };
+    case SearchMovieActionTypes.SEARCH_MOVIE_FINISHED: {
+      return { ...state, isSearchResultsLoading: false };
     }
     case SearchMovieActionTypes.SET_SEARCH_MOVIE_PAGE: {
       return { ...state, searchResultsCurrentPage: action.payload };
@@ -34,7 +34,7 @@ export const searchMovieReducer = (
       return { ...state, searchResultsPagesCount: action.payload };
     }
     case SearchMovieActionTypes.SEARCH_MOVIE_ERROR: {
-      return { ...state, isSearchResultsLoading: false, searchMovieError: action.payload };
+      return { ...state, searchMovieError: action.payload };
     }
 
     default:

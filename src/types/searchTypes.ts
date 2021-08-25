@@ -11,7 +11,7 @@ export interface ISearchMovieState {
 
 export enum SearchMovieActionTypes {
   SEARCH_MOVIE = 'SEARCH_MOVIE',
-  SEARCH_MOVIE_SUCCESS = 'SEARCH_MOVIE_SUCCESS',
+  SEARCH_MOVIE_FINISHED = 'SEARCH_MOVIE_FINISHED',
   SEARCH_MOVIE_ERROR = 'SEARCH_MOVIE_ERROR',
   SET_SEARCH_MOVIE_PAGE = 'SET_SEARCH_MOVIE_PAGE',
   SET_SEARCH_KEYWORD = 'SET_SEARCH_KEYWORD',
@@ -25,11 +25,11 @@ export interface ISearchMovieError {
 
 export interface ISearchMovieAction {
   type: SearchMovieActionTypes.SEARCH_MOVIE;
+  payload: IMovie[];
 }
 
-export interface ISearchSuccessAction {
-  type: SearchMovieActionTypes.SEARCH_MOVIE_SUCCESS;
-  payload: IMovie[];
+export interface ISearchMovieFinishedAction {
+  type: SearchMovieActionTypes.SEARCH_MOVIE_FINISHED;
 }
 
 export interface ISetSearchMoviePage {
@@ -49,7 +49,7 @@ export interface ISetSearchPagesCount {
 
 export type SearchMovieActions =
   | ISearchMovieAction
-  | ISearchSuccessAction
+  | ISearchMovieFinishedAction
   | ISetSearchMoviePage
   | ISetSearchKeyword
   | ISetSearchPagesCount

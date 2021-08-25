@@ -9,12 +9,14 @@ import {
   MOVIE_PAGE,
   NO_SEARCH_RESULTS_MESSAGE,
   NO_SEARCH_YET_MESSAGE,
+  PAGE_404,
   SEARCH_PAGE,
 } from '../../utils/constants';
 import AboutPage from '../AboutPage/AboutPage';
 import Message from '../Message/Message';
 import MoviePage from '../MoviePage/MoviePage';
 import MoviesList from '../MoviesList/MoviesList';
+import Page404 from '../Page404/Page404';
 import Pagination from '../Pagination/Pagination';
 import Preloader from '../Preloader/Preloader';
 import styles from './styles.module.css';
@@ -30,7 +32,7 @@ const Main: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchTopMovies(currentPage));
-  }, [currentPage]);
+  }, [currentPage, dispatch]);
 
   return (
     <main className={styles.main}>
@@ -71,6 +73,8 @@ const Main: React.FC = () => {
         <Route exact path={`/${ABOUT_PAGE}`}>
           <AboutPage />
         </Route>
+
+        <Route path={PAGE_404} component={Page404} />
       </Switch>
     </main>
   );

@@ -17,15 +17,16 @@
   outline: none;
   background-color: #424242;
   border: none;
+  transition: background-color 0.3s linear;
 }
 
 .input:focus {
-  transition: background-color 0.2s linear;
+  transition: background-color 0.3s linear;
   background-color: #ffc700;
 }
 
 .input:focus + .submitButton {
-  transition: background-color 0.2s linear;
+  transition: background-color 0.3s linear;
   background-color: #ffc700;
 }
 
@@ -45,6 +46,7 @@
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s linear;
 }
 
 @media screen and (min-width: 768px) {

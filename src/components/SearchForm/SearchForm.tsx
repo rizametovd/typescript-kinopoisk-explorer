@@ -7,20 +7,20 @@ import { SEARCH_PAGE } from '../../utils/constants';
 import styles from './styles.module.css';
 
 const SearchForm: React.FC = () => {
-  const [input, setInput] = useState<string>('');
+  const [keyword, setKeyword] = useState<string>('');
   const dispatch = useDispatch()
   const history = useHistory();
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
-    setInput(e.target.value);
+    setKeyword(e.target.value);
   };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e): void => {
     e.preventDefault();
     
-    dispatch(searchMovie(input));
+    dispatch(searchMovie(keyword));
     history.push(`/${SEARCH_PAGE}`)
-    setInput('');
+    setKeyword('');
     dispatch(setSearchPageAction(1));
   };
 
@@ -30,7 +30,7 @@ const SearchForm: React.FC = () => {
         <input
           className={styles.input}
           onChange={handleChange}
-          value={input}
+          value={keyword}
           placeholder='Название фильма'
           autoComplete='off'
         />

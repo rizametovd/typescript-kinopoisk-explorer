@@ -14,7 +14,7 @@
 }
 
 .content {
-  /* padding-top: 10px; */
+  transition: opacity 0.3s linear;
 }
 
 .title {
@@ -64,6 +64,8 @@
 
   .image {
     width: 187px;
+    height: 277px;
+    object-fit: cover;
     margin-right: 0;
   }
 }
