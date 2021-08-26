@@ -1,12 +1,13 @@
 export enum MovieActionTypes {
-  FETCH_MOVIE = 'FETCH_MOVIE',
+  FETCH_MOVIE_DATA = 'FETCH_MOVIE_DATA',
+  FETCH_MOVIE_SUCCESS = 'FETCH_MOVIE_SUCCESS',
   FETCH_MOVIE_DATA_FINISHED = 'FETCH_MOVIE_DATA_FINISHED',
   FETCH_MOVIE_ERROR = 'FETCH_MOVIE_ERROR',
   RESET_MOVIE_STATE = 'RESET_MOVIE_STATE',
 }
 
-export interface IFetchMovieAction {
-  type: MovieActionTypes.FETCH_MOVIE;
+export interface IFetchMovieSuccessAction {
+  type: MovieActionTypes.FETCH_MOVIE_SUCCESS;
   payload: IMovie;
 }
 
@@ -23,11 +24,16 @@ export interface IResetMovieState {
   type: MovieActionTypes.RESET_MOVIE_STATE;
 }
 
+export interface IFetchMovieData {
+  type: MovieActionTypes.FETCH_MOVIE_DATA;
+}
+
 export type MovieActions =
-  | IFetchMovieAction
+  | IFetchMovieSuccessAction
   | IFetchMovieErrorAction
   | IResetMovieState
-  | IFetchMovieDataFinishedAction;
+  | IFetchMovieDataFinishedAction
+  | IFetchMovieData;
 
 export interface IMovie {
   filmId: number;
@@ -35,6 +41,7 @@ export interface IMovie {
   nameEn: string;
   webUrl: string;
   posterUrl: string;
+  posterUrlPreview: string;
   year: number;
   filmLength: string;
   slogan: string;

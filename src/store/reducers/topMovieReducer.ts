@@ -10,8 +10,11 @@ const initialState: ITopMovieState = {
 
 export const topMovieReducer = (state = initialState, action: TopMovieAction): ITopMovieState => {
   switch (action.type) {
-    case TopMovieActionTypes.FETCH_TOP_MOVIES: {
-      return { ...state, topMovies: action.payload, isTopMoviesLoading: true };
+    case TopMovieActionTypes.FETCH_TOP_MOVIES_DATA: {
+      return { ...state, isTopMoviesLoading: true };
+    }
+    case TopMovieActionTypes.FETCH_TOP_MOVIES_SUCCESS: {
+      return { ...state, topMovies: action.payload };
     }
     case TopMovieActionTypes.FETCH_TOP_MOVIES_FINISHED: {
       return { ...state, isTopMoviesLoading: false };

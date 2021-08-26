@@ -1,5 +1,4 @@
 import styles from './styles.module.css';
-// import { IMovie } from '../../types/topMoviesTypes';
 import { IMovie } from '../../types/movieTypes';
 
 const MovieCard: React.FC<IMovie> = ({ nameRu, rating, genres, posterUrl }) => {

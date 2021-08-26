@@ -1,0 +1,8 @@
+.listItem {
+  margin-right: 20px;
+  position: relative;
+}
+
+.listItem:last-of-type {
+  margin-right: 0;
+}

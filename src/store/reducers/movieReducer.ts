@@ -7,6 +7,7 @@ const initialState: IMovieState = {
     nameEn: '',
     webUrl: '',
     posterUrl: '',
+    posterUrlPreview: '',
     year: 0,
     filmLength: '',
     slogan: '',
@@ -30,8 +31,11 @@ const initialState: IMovieState = {
 
 export const movieReducer = (state = initialState, action: MovieActions): IMovieState => {
   switch (action.type) {
-    case MovieActionTypes.FETCH_MOVIE: {
-      return { ...state, movie: action.payload, isLoading: true };
+    case MovieActionTypes.FETCH_MOVIE_DATA: {
+      return { ...state, isLoading: true };
+    }
+    case MovieActionTypes.FETCH_MOVIE_SUCCESS: {
+      return { ...state, movie: action.payload };
     }
     case MovieActionTypes.FETCH_MOVIE_DATA_FINISHED: {
       return { ...state, isLoading: false };
@@ -40,7 +44,13 @@ export const movieReducer = (state = initialState, action: MovieActions): IMovie
       return { ...state, movieError: action.payload };
     }
     case MovieActionTypes.RESET_MOVIE_STATE: {
-      return initialState;
+      return {
+        ...initialState,
+        movie: {
+          ...initialState.movie,
+          posterUrl: state.movie.posterUrl,
+        },
+      };
     }
     default:
       return state;

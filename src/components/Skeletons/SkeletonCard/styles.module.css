@@ -1,0 +1,34 @@
+.skeletonWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeletonCard {
+  display: flex;
+}
+
+.container {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .skeletonCard {
+    flex-direction: column;
+  }
+}
+
+.defaultTheme {
+  background-color: transparent;
+}
+
+.skeletonWrapper.yellow {
+  background-color: #ffc700;
+}
+
+.skeletonWrapper.red {
+  background-color: red;
+}
+
+.skeletonWrapper.red .skeleton {
+  background-color: blue;
+}

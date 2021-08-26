@@ -9,7 +9,7 @@ const GoBackLink: React.FC<IGoBackLinkProps> = ({ text }) => {
   const history = useHistory();
 
   return (
-    <Link className={styles.link} to='/' onClick={()=> history.goBack()}>
+    <Link className={styles.link} to='/' onClick={() => history.goBack()}>
       {text}
     </Link>
   );

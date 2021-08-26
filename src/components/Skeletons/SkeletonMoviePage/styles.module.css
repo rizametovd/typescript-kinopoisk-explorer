@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+}

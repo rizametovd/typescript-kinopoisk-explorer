@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 
 const SearchForm: React.FC = () => {
   const [keyword, setKeyword] = useState<string>('');
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e): void => {
@@ -17,9 +17,9 @@ const SearchForm: React.FC = () => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e): void => {
     e.preventDefault();
-    
+
     dispatch(searchMovie(keyword));
-    history.push(`/${SEARCH_PAGE}`)
+    history.push(`/${SEARCH_PAGE}`);
     setKeyword('');
     dispatch(setSearchPageAction(1));
   };

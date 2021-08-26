@@ -1,16 +1,23 @@
 import {
-  IFetchMovieAction,
+  IFetchMovieData,
   IFetchMovieDataFinishedAction,
   IFetchMovieErrorAction,
+  IFetchMovieSuccessAction,
   IMovie,
   IResetMovieState,
   MovieActionTypes,
 } from '../../types/movieTypes';
 
-export const fetchMovieAction = (movieData: IMovie): IFetchMovieAction => {
+export const fetchMovieSuccessAction = (movieData: IMovie): IFetchMovieSuccessAction => {
   return {
-    type: MovieActionTypes.FETCH_MOVIE,
+    type: MovieActionTypes.FETCH_MOVIE_SUCCESS,
     payload: movieData,
+  };
+};
+
+export const fetchMovieDataAction = (): IFetchMovieData => {
+  return {
+    type: MovieActionTypes.FETCH_MOVIE_DATA,
   };
 };
 

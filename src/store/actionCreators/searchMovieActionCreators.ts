@@ -3,16 +3,22 @@ import {
   ISearchMovieAction,
   ISearchMovieError,
   ISearchMovieFinishedAction,
-  // ISearchSuccessAction,
+  ISearchMovieSuccessAction,
   ISetSearchKeyword,
   ISetSearchMoviePage,
   ISetSearchPagesCount,
   SearchMovieActionTypes,
 } from '../../types/searchTypes';
 
-export const searchMovieAction = (movies: IMovie[]): ISearchMovieAction => {
+export const searchMovieAction = (): ISearchMovieAction => {
   return {
     type: SearchMovieActionTypes.SEARCH_MOVIE,
+  };
+};
+
+export const searchMovieSuccessAction = (movies: IMovie[]): ISearchMovieSuccessAction => {
+  return {
+    type: SearchMovieActionTypes.SEARCH_MOVIE_SUCCESS,
     payload: movies,
   };
 };
@@ -20,8 +26,8 @@ export const searchMovieAction = (movies: IMovie[]): ISearchMovieAction => {
 export const searchMovieFinishedAction = (): ISearchMovieFinishedAction => {
   return {
     type: SearchMovieActionTypes.SEARCH_MOVIE_FINISHED,
-  }
-}
+  };
+};
 
 export const setSearchPagesCountAction = (page: number): ISetSearchPagesCount => {
   return {
