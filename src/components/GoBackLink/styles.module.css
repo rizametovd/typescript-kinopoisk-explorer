@@ -1,13 +1,16 @@
-.link {
-  text-decoration: none;
+.goBackButton {
+  /* text-decoration: none; */
   background-color: #ffc700;
   color: #000;
   padding: 5px 10px;
   border-radius: 5px;
   transition: opacity 0.3s linear;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
-.link:hover {
+.goBackButton:hover {
   transition: opacity 0.3s linear;
   opacity: 0.7;
 }
