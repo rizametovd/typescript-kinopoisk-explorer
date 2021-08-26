@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/typescript-kinopoisk-explorer/static/css/main.31cd2c46.chunk.css",
-    "main.js": "/typescript-kinopoisk-explorer/static/js/main.94829508.chunk.js",
-    "main.js.map": "/typescript-kinopoisk-explorer/static/js/main.94829508.chunk.js.map",
+    "main.js": "/typescript-kinopoisk-explorer/static/js/main.10c0db5a.chunk.js",
+    "main.js.map": "/typescript-kinopoisk-explorer/static/js/main.10c0db5a.chunk.js.map",
     "runtime-main.js": "/typescript-kinopoisk-explorer/static/js/runtime-main.66e020cb.js",
     "runtime-main.js.map": "/typescript-kinopoisk-explorer/static/js/runtime-main.66e020cb.js.map",
     "static/js/2.0c6cfecf.chunk.js": "/typescript-kinopoisk-explorer/static/js/2.0c6cfecf.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.66e020cb.js",
     "static/js/2.0c6cfecf.chunk.js",
     "static/css/main.31cd2c46.chunk.css",
-    "static/js/main.94829508.chunk.js"
+    "static/js/main.10c0db5a.chunk.js"
   ]
 }
